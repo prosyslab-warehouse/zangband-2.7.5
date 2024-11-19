@@ -1,0 +1,134 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: Zangband
+Source: http://www.zangband.org
+Comment:
+ The game is not intended to be used for "profit purposes". This
+ makes zangband technically non-free according to the Debian Free Software
+ Guidelines (DFSG, http://www.debian.org/social_contract#guidelines, point 6),
+ but is sufficiently free that Debian is able to autobuild it.
+ See http://lists.debian.org/debian-devel-announce/2006/11/msg00012.html for
+ further discussion on autobuilding non-free programs.
+
+Files: *
+Copyright: 1989, Christopher J. Stuart
+           1989, 1997, 1999, 2003 Robert A. Koeneke, James E. Wilson
+           1997, Ben Harrison, Keith Randall, Peter Ammon, Ron Anderson,
+                 Ekkehard Kraemer, Torbjorn Lindgren
+           1997, 2000, 2002, 2003 Steven Fuerst
+           1997-2001, Tim Baker
+           1999, 2000, 2001, 2003 Robert Ruehlmann
+           and others
+License: Zangband-License
+
+Files: src/angband.h
+Copyright: 1989, 1997 Robert A. Koeneke
+           1997 Ben Harrison, James E. Wilson
+License: Zangband-License and Angband-License
+
+Files: src/lua/*
+Copyright: 1994-2000, Waldemar Celes Filho, Roberto Ierusalimschy and
+                      Luiz Henrique de Figueiredo at TeCGraf PUC-Rio
+License: The-Lua-License
+
+Files: src/readdib.*
+Copyright: 1993, Microsoft Corp.
+License: Microsoft-Permissive-License
+
+Files: debian/*
+Copyright: 1998-2000 Eric Leblanc <jughead@debian.org>
+           2001 Clint Adams <schizo@debian.org>
+           2001 Brian Nelson <bnelson@bloddclot.net>
+           2002 Zack Weinberg <zack@codesourcery.com>
+           2002 Michael Fedrowitz <michaelf@debian.org>
+           2003 Jerome Marant <jerome@debian.org>
+           2003 Pascal Hakim <pasc@debian.org>
+           2004 Vince Mulhollon <vlm@debian.org>
+           2006 Steinar H. Gunderson <sesse@debian.org>
+           2007-2012 Drew Parsons <dparsons@debian.org>
+           2012-2020 Markus Koschany <apo@debian.org>
+License: GNU-All-Permissive-license
+ Copying and distribution of this file, with or without modification,
+ are permitted in any medium without royalty provided the copyright
+ notice and this notice are preserved. This file is offered as-is,
+ without any warranty.
+
+Files: debian/zangband.png
+Copyright: public-domain
+License: public-domain
+ These files are in the public domain.
+Comment:
+ This is the public-domain image games-ascii.png from
+ http://sourceforge.net/projects/openiconlibrary/
+
+License: Zangband-License
+ This software may be copied and distributed for educational, research, and not
+ for profit purposes provided that this copyright and statement are included in
+ all such copies. Other copyrights may also apply.
+
+License: Angband-License
+ I lovingly dedicate this game to hackers and adventurers
+ everywhere...
+ .
+ Designer and Programmer:
+ Robert Alan Koeneke
+ University of Oklahoma
+ .
+ Assistant Programmer:
+ Jimmey Wayne Todd
+ University of Oklahoma
+ .
+ Assistant Programmer:
+ Gary D. McAdoo
+ University of Oklahoma
+ .
+ UNIX Port:
+ James E. Wilson
+ UC Berkeley
+ wilson@ernie.Berkeley.EDU
+ ucbvax!ucbernie!wilson
+ .
+ ANGBAND may be copied and modified freely as long as the
+ above credits are retained. No one who-so-ever may sell or
+ market this software in any form without the expressed
+ written consent of the author Robert Alan Koeneke.
+
+License: The-Lua-License
+ Permission is hereby granted, without written agreement and without license
+ or royalty fees, to use, copy, modify, and distribute this software and its
+ documentation for any purpose, including commercial applications, subject to
+ the following conditions:
+ .
+ - The above copyright notice and this permission notice shall appear in all
+   copies or substantial portions of this software.
+ .
+ - The origin of this software must not be misrepresented; you must not
+   claim that you wrote the original software. If you use this software in a
+   product, an acknowledgment in the product documentation would be greatly
+   appreciated (but it is not required).
+ .
+ - Altered source versions must be plainly marked as such, and must not be
+   misrepresented as being the original software.
+ .
+ The authors specifically disclaim any warranties, including, but not limited
+ to, the implied warranties of merchantability and fitness for a particular
+ purpose.  The software provided hereunder is on an "as is" basis, and the
+ authors have no obligation to provide maintenance, support, updates,
+ enhancements, or modifications.  In no event shall TeCGraf, PUC-Rio, or the
+ authors be held liable to any party for direct, indirect, special,
+ incidental, or consequential damages arising out of the use of this software
+ and its documentation.
+ .
+ The Lua language and this implementation have been entirely designed and
+ written by Waldemar Celes Filho, Roberto Ierusalimschy and
+ Luiz Henrique de Figueiredo at TeCGraf, PUC-Rio.
+ .
+ This implementation contains no third-party code.
+
+License: Microsoft-Permissive-License
+ (C) Copyright Microsoft Corp. 1993.  All rights reserved.
+ .
+ You have a royalty-free right to use, modify, reproduce and
+ distribute the Sample Files (and/or any modified version) in
+ any way you find useful, provided that you agree that
+ Microsoft has no warranty obligations or liability for any
+ Sample Application Files which are modified.

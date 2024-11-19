@@ -1,0 +1,3 @@
+zangband              usr/games
+var/games/zangband
+zangband.desktop      usr/share/applications

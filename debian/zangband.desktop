@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Name=Zangband
+GenericName=Zangband
+Comment=A single-player, text-based, roguelike game
+Comment[de]=Ein textbasiertes Einzelspielerspiel im Stil von Rogue
+Exec=zangband
+Icon=zangband
+Terminal=true
+Categories=Game;RolePlaying;
+Keywords=angband;magic;ascii;rogue;dungeon;roleplaying;

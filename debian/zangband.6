@@ -1,0 +1,120 @@
+.\" Hey, Emacs! This is an -*- nroff -*- source file.
+.\" Copyright (c) 1997 Manoj Srivastava <srivasta@debian.org>
+.\"
+.\" This is free documentation; you can redistribute it and/or
+.\" modify it under the terms of the GNU General Public License as
+.\" published by the Free Software Foundation; either version 2 of
+.\" the License, or (at your option) any later version.
+.\"
+.\" The GNU General Public License's references to "object code"
+.\" and "executables" are to be interpreted as the output of any
+.\" document formatting or typesetting system, including
+.\" intermediate and printed output.
+.\"
+.\" This manual is distributed in the hope that it will be useful,
+.\" but WITHOUT ANY WARRANTY; without even the implied warranty of
+.\" MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+.\" GNU General Public License for more details.
+.\"
+.\" You should have received a copy of the GNU General Public
+.\" License along with this manual; if not, write to the Free
+.\" Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139,
+.\" USA.
+.\"
+.\" This manual is distributed in the hope that it will be useful,
+.\" but WITHOUT ANY WARRANTY; without even the implied warranty of
+.\" MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+.\" GNU General Public License for more details.
+.\"
+.\" You should have received a copy of the GNU General Public
+.\" License along with this manual; if not, write to the Free
+.\" Software Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139,
+.\" USA.
+.\"
+.\" $Id: angband.man,v 1.3 1998/02/17 06:49:58 srivasta Exp $
+.TH ZANGBAND 6 "March 4 2000" "Debian" "Debian GNU/Linux manual"
+.SH NAME
+zangband \- is a graphical dungeon adventure game in the vein of rogue
+.SH SYNOPSIS
+.B zangband
+.I [options]
+.I [\-\- suboptions]
+.SH DESCRIPTION
+This manual page explains the Debian package
+.B zangband.
+.B ZAngband
+is a single-player,
+.I graphical
+dungeon adventure game using textual characters
+to represent the walls and floors of a dungeon and the inhabitants therein,
+in the vein of
+.I rogue,
+.I angband,
+.I nethack,
+and
+.I moria.
+.B ZAngband
+2.2.8 is a stable official release incorporating all the changes
+and improvements added since the last official release (
+.B ZAngband
+2.2.7).
+.PP
+.SH OPTIONS
+.PD 0
+.TP 10
+.B \-h
+Print out a usage message.
+.TP
+.BR \-n
+Start a new character
+.TP
+.BR \-f
+Request fiddle mode (no high score entry)
+.TP
+.BR \-w
+Request wizard mode (no high score entry)
+.TP
+.BR \-v
+Request sound mode
+.TP
+.BR \-g
+Request graphics mode
+.TP
+.BR \-o
+Request original keyset
+.TP
+.BR \-r
+Request rogue-like keyset
+.TP
+.BR \-s<num>
+Show <num> high scores
+.TP
+.BR \-u<who>
+Use your <who> savefile
+.TP
+.BR \-m<sys>
+Force 'main-<sys>.c' usage
+.TP
+.BR \-d<lib>=<path>
+Define a 'lib' dir sub-path. Valid values of lib are help info user
+bone save data apex xtra edit file
+.PD
+.SH "GETTING STARTED"
+To start with, you can just say angband \-uTest, and that creates a
+save file with the file name
+.I /var/games/zangband/save/<UID>Test.
+The best place to get help is the program itself; help is reached by
+the command
+.B ?
+and presents a menu of choices.
+.PP
+Program options can be set  using the = command. To see what the
+various options mean, access the List of Options help menu with the ?
+command.
+.SH "SEE ALSO"
+.BR nethack (6),
+.BR angband (6).
+.SH AUTHOR
+This manual page was originaly written by Manoj Srivastava
+<srivasta@debian.org>, for the Angband package. Modified by Eric Leblanc
+<jughead@debian.org>, for the Debian GNU/Linux system (but may be used by others).

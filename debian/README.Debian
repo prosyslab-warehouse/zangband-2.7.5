@@ -1,0 +1,13 @@
+This is the Debian GNU/Linux packaged version of Zangband, a roguelike
+game based on Angband.  Angband was written by numerous programmers
+over the years, and is derived from earlier games of the same genre.
+
+Zangband has a new magical system, new monsters and uniques, speaking
+uniques, rumours, warrants, "negative" level feelings, new ego items
+and artifacts, backstabbing from rogues, poisoned weapons and much,
+much more.
+
+Numerous thanks to Manoj Srivastava <srivasta@debian.org> for the work
+done on the angband package on which this one is based.
+
+

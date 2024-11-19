@@ -1,0 +1,33 @@
+Description: Start the console version by default
+Author: Pascal Hakim
+Origin: Debian
+Bug: http://bugs.debian.org/194484
+Last-Update: 2012-11-16
+---
+This patch header follows DEP-3: http://dep.debian.net/deps/dep3/
+Index: zangband-2.7.5pre1/src/main.c
+===================================================================
+--- zangband-2.7.5pre1.orig/src/main.c	2005-06-05 02:54:20.000000000 +1000
++++ zangband-2.7.5pre1/src/main.c	2007-10-10 23:10:11.000000000 +1000
+@@ -25,6 +25,10 @@
+  */
+ static const module_type modules[] =
+ {
++#ifdef USE_GCU
++	INIT_MODULE(gcu),
++#endif /* USE_GCU */
++
+ #ifdef USE_GTK
+ 	INIT_MODULE(gtk),
+ #endif /* USE_GTK */
+@@ -45,10 +49,6 @@
+ 	INIT_MODULE(tnb),
+ #endif /* USE_TNB */
+ 
+-#ifdef USE_GCU
+-	INIT_MODULE(gcu),
+-#endif /* USE_GCU */
+-
+ #ifdef USE_CAP
+ 	INIT_MODULE(cap),
+ #endif /* USE_CAP */

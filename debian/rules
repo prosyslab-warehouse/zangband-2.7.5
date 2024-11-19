@@ -1,0 +1,76 @@
+#!/usr/bin/make -f
+#export DH_VERBOSE=1
+export DEB_BUILD_MAINT_OPTIONS = hardening=+all
+
+
+%:
+	dh $@
+
+override_dh_auto_configure:
+	./configure \
+		--prefix=/usr \
+		--bindir=/usr/games \
+		--sysconfdir=/etc \
+		--datadir=/usr/share \
+		--with-setgid=games \
+		--with-x
+
+override_dh_missing:
+	dh_missing --list-missing
+
+override_dh_auto_build:
+	$(MAKE)
+
+override_dh_auto_install:
+	$(MAKE) install DESTDIR=$(CURDIR)/debian/tmp/ \
+		bindir=$(CURDIR)/debian/tmp/
+	chmod a-x \
+		$(CURDIR)/debian/tmp/lib/*/*.txt \
+		$(CURDIR)/debian/tmp/lib/*/*.hlp
+	mkdir -p $(CURDIR)/debian/tmp/var/games/zangband/
+	mv $(CURDIR)/debian/tmp/lib/apex \
+		$(CURDIR)/debian/tmp/var/games/zangband/
+	mv $(CURDIR)/debian/tmp/lib/bone \
+		$(CURDIR)/debian/tmp/var/games/zangband/
+	mv $(CURDIR)/debian/tmp/lib/save \
+		$(CURDIR)/debian/tmp/var/games/zangband/
+	mv $(CURDIR)/debian/tmp/lib/data \
+		$(CURDIR)/debian/tmp/var/games/zangband/
+	find $(CURDIR)/debian/tmp/lib -type f | xargs chmod -x
+	find $(CURDIR)/debian/tmp/var -type f | xargs chmod -x
+	find $(CURDIR)/debian/tmp/lib -type d -empty -delete
+
+override_dh_install:
+	cp $(CURDIR)/debian/zangband.png \
+		$(CURDIR)/debian/zangband.desktop $(CURDIR)/debian/tmp/
+	dh_install --sourcedir=debian/tmp
+
+override_dh_fixperms-arch:
+	dh_fixperms
+	chgrp games \
+		debian/zangband/usr/games/zangband
+	chmod 2755 \
+		debian/zangband/usr/games/zangband
+	chgrp -R games \
+		debian/zangband/var/games/zangband/apex \
+		debian/zangband/var/games/zangband/data \
+		debian/zangband/var/games/zangband/bone \
+		debian/zangband/var/games/zangband/save
+	chmod 2775 \
+		debian/zangband/var/games/zangband/data \
+		debian/zangband/var/games/zangband/apex \
+		debian/zangband/var/games/zangband/bone \
+		debian/zangband/var/games/zangband/save
+	chmod g+w -R \
+		debian/zangband/var/games/zangband/data
+	chmod g+w \
+		debian/zangband/var/games/zangband/apex/scores.raw
+
+override_dh_installdocs:
+	cp readme README
+	cp z_update.txt changelog
+	dh_installdocs
+
+override_dh_auto_clean:
+# Don't use dh_auto_clean to avoid a FTBFS.
+

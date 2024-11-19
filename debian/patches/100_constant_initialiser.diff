@@ -1,0 +1,90 @@
+Description: Remove usages of non-constant initializers
+ Fixes FTBFS on gcc-4.0
+Author: Andreas Jochens
+Origin: Debian
+Bug: http://bugs.debian.org/297279
+Last-Update: 2012-11-16
+---
+This patch header follows DEP-3: http://dep.debian.net/deps/dep3/
+Index: zangband-2.7.5pre1/src/main-gtk.c
+===================================================================
+--- zangband-2.7.5pre1.orig/src/main-gtk.c	2005-06-05 02:54:20.000000000 +1000
++++ zangband-2.7.5pre1/src/main-gtk.c	2007-10-10 23:08:59.000000000 +1000
+@@ -1286,7 +1286,7 @@
+ {
+ 	GtkWidget *font_selector = gtk_font_selection_dialog_new("Select font");
+ 
+-	term_data *td = user_data;
++	term_data *td = (term_data*) &data[(long)user_data];
+ 	gchar *foundery[] = { (char * ) "misc", NULL};
+ 	gchar *spacings[] = { (char * ) "c", (char *) "m", NULL };
+ 	gchar *charsets[] = { (char * ) "iso8859-1", NULL};
+@@ -1331,7 +1331,7 @@
+  */
+ static void term_event_handler(GtkWidget *widget, gpointer user_data)
+ {
+-	term_data *td = (term_data *)user_data;
++	term_data *td = (term_data *) &data[(long)user_data];
+ 	
+ 	/* Ignore unused parameter */
+ 	(void) widget;
+@@ -2329,21 +2329,21 @@
+ 	  NULL, 0, (char * ) "<Branch>" },
+ 	/* XXX XXX XXX NULL's are replaced by the program */
+ 	{ NULL, (char * ) "<mod1>0",
+-	  term_event_handler, (guint)&data[0], (char * ) "<CheckItem>" },
++	  term_event_handler, 0, (char * ) "<CheckItem>" },
+ 	{ NULL, (char * ) "<mod1>1",
+-	  term_event_handler, (guint)&data[1], (char * ) "<CheckItem>" },
++	  term_event_handler, 1, (char * ) "<CheckItem>" },
+ 	{ NULL, (char * ) "<mod1>2",
+-	  term_event_handler, (guint)&data[2], (char * ) "<CheckItem>" },
++	  term_event_handler, 2, (char * ) "<CheckItem>" },
+ 	{ NULL, (char * ) "<mod1>3",
+-	  term_event_handler, (guint)&data[3], (char * ) "<CheckItem>" },
++	  term_event_handler, 3, (char * ) "<CheckItem>" },
+ 	{ NULL, (char * ) "<mod1>4",
+-	  term_event_handler, (guint)&data[4], (char * ) "<CheckItem>" },
++	  term_event_handler, 4, (char * ) "<CheckItem>" },
+ 	{ NULL, (char * ) "<mod1>5",
+-	  term_event_handler, (guint)&data[5], (char * ) "<CheckItem>" },
++	  term_event_handler, 5, (char * ) "<CheckItem>" },
+ 	{ NULL, (char * ) "<mod1>6",
+-	  term_event_handler, (guint)&data[6], (char * ) "<CheckItem>" },
++	  term_event_handler, 6, (char * ) "<CheckItem>" },
+ 	{ NULL, (char * ) "<mod1>7",
+-	  term_event_handler, (guint)&data[7], (char * ) "<CheckItem>" },
++	  term_event_handler, 7, (char * ) "<CheckItem>" },
+ 
+ 	/* "Options" menu */
+ 	{ (char * ) "/Options", NULL,
+@@ -2354,21 +2354,21 @@
+ 	  NULL, 0, (char * ) "<Branch>" },
+ 	/* XXX XXX XXX Again, NULL's are filled by the program */
+ 	{ NULL, NULL,
+-	  change_font_event_handler, (guint)&data[0], NULL },
++	  change_font_event_handler, 0, NULL },
+ 	{ NULL, NULL,
+-	  change_font_event_handler, (guint)&data[1], NULL },
++	  change_font_event_handler, 1, NULL },
+ 	{ NULL, NULL,
+-	  change_font_event_handler, (guint)&data[2], NULL },
++	  change_font_event_handler, 2, NULL },
+ 	{ NULL, NULL,
+-	  change_font_event_handler, (guint)&data[3], NULL },
++	  change_font_event_handler, 3, NULL },
+ 	{ NULL, NULL,
+-	  change_font_event_handler, (guint)&data[4], NULL },
++	  change_font_event_handler, 4, NULL },
+ 	{ NULL, NULL,
+-	  change_font_event_handler, (guint)&data[5], NULL },
++	  change_font_event_handler, 5, NULL },
+ 	{ NULL, NULL,
+-	  change_font_event_handler, (guint)&data[6], NULL },
++	  change_font_event_handler, 6, NULL },
+ 	{ NULL, NULL,
+-	  change_font_event_handler, (guint)&data[7], NULL },
++	  change_font_event_handler, 7, NULL },
+ 
+ #ifdef USE_GRAPHICS
+ 

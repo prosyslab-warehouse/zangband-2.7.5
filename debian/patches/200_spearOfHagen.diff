@@ -1,0 +1,22 @@
+Description: Fix Spear of Hagen artifact
+ The patch fixes a wrong named variable. Otherwise this leads to error messages
+ while using the artifact.
+Author: Guillaume Giroux
+Origin: Debian
+Bug: http://bugs.debian.org/516064
+Last-Update: 2012-11-16
+---
+This patch header follows DEP-3: http://dep.debian.net/deps/dep3/
+Index: zangband/lib/edit/a_info.txt
+===================================================================
+--- zangband.orig/lib/edit/a_info.txt	2009-02-23 16:59:12.000000000 +1100
++++ zangband/lib/edit/a_info.txt	2009-02-23 16:59:18.000000000 +1100
+@@ -1491,7 +1491,7 @@
+ F:STEALTH | RES_DARK | INFRA |
+ F:BRAND_COLD | SLAY_UNDEAD | RES_COLD | SEE_INVIS | SHOW_MODS | THROW
+ F:INSTA_ART
+-L:BONUS:	b.pspeed = (player.level + 4) / 5
++L:BONUS:	b.pspeed = (player.lev + 4) / 5
+ L:SPOIL:	return "+1 speed / 5 levels"
+ 
+ # The Spear 'Soulsucker'

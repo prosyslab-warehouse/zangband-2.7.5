@@ -1,0 +1,7 @@
+300_fix_explosive_rune_error.patch
+100_constant_initialiser.diff
+110_default_text_mode
+900_pathnames.diff
+200_spearOfHagen.diff
+120_rng_64bit.diff
+910_tcltk.diff
